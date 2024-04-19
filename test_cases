@@ -1,0 +1,5 @@
+Crawler:
+scrapy crawl my_crawler -a seed_url="https://en.wikipedia.org/wiki/Mike_Tyson" -a max_pages=100 -a max_depth=3
+
+
+ scrapy crawl my_crawler -a seed_url="http://quotes.toscrape.com" -a max_pages=100 -a max_depth=40
