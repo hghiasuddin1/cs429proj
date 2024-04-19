@@ -15,10 +15,13 @@ class MyCrawler(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse, meta={'depth': 0})
 
     def parse(self, response):
-        # Extract relevant content from the HTML document
-        content = response.body
+        # Save the HTML content to a file
+        filename = f'page_{response.meta["depth"]}.html'
+        with open(filename, 'wb') as f:
+            f.write(response.body)
         
-        # Save or process the content
+        # Extract relevant content from the HTML document
+        # You can further process or save the content as needed
         
         # Follow links to next pages if not reached max pages or max depth
         if response.meta.get('depth', 0) < self.max_depth and len(self.visited_urls) < self.max_pages:
