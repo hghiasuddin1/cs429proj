@@ -1,35 +1,37 @@
+import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import pickle
 
 class Indexer:
     def __init__(self):
         self.vectorizer = TfidfVectorizer()
-        self.index = None
+        self.inverted_index = {}
+        self.documents = []
 
-    def build_index(self, documents):
-        # Convert documents into TF-IDF matrix
-        tfidf_matrix = self.vectorizer.fit_transform(documents)
-        
-        # Compute cosine similarity matrix
-        self.index = cosine_similarity(tfidf_matrix, tfidf_matrix)
+    def add_document(self, doc_id, text):
+        self.documents.append(text)
+        doc_index = len(self.documents) - 1
+        for term in set(text.split()):
+            if term not in self.inverted_index:
+                self.inverted_index[term] = []
+            self.inverted_index[term].append((doc_id, doc_index))
 
-    def save_index(self, filepath):
-        if self.index:
-            with open(filepath, 'wb') as f:
-                pickle.dump(self.index, f)
-            print(f"Inverted index saved to {filepath}")
-        else:
-            print("Error: Index is empty. Please build the index first.")
+    def build_index(self):
+        tfidf_matrix = self.vectorizer.fit_transform(self.documents)
+        self.tfidf_matrix = tfidf_matrix
 
-    def load_index(self, filepath):
-        with open(filepath, 'rb') as f:
-            self.index = pickle.load(f)
-        print(f"Inverted index loaded from {filepath}")
+    def save_index(self, filename):
+        with open(filename, 'wb') as file:
+            pickle.dump((self.inverted_index, self.tfidf_matrix), file)
 
-# Example usage:
-indexer = Indexer()
-documents = ["document1 content", "document2 content", "document3 content"]
-indexer.build_index(documents)
-indexer.save_index("index.pkl")
-loaded_index = indexer.load_index("index.pkl")
+    def load_index(self, filename):
+        with open(filename, 'rb') as file:
+            self.inverted_index, self.tfidf_matrix = pickle.load(file)
+
+    def search(self, query, k=5):
+        query_vector = self.vectorizer.transform([query])
+        cosine_similarities = cosine_similarity(query_vector, self.tfidf_matrix).flatten()
+        doc_scores = [(doc_id, cosine_score, tfidf_score) for doc_id, (cosine_score, tfidf_score) in enumerate(zip(cosine_similarities, query_vector.toarray().flatten()))]
+        doc_scores.sort(key=lambda x: x[1], reverse=True)
+        return doc_scores[:k]
+
