@@ -23,5 +23,11 @@ queries = ["document", "second document", "third", "this"]
 for query in queries:
     results = indexer.search(query)
     print(f"Search results for query '{query}':")
-    for doc_id, cosine_score, tfidf_score in results:
-        print(f"Document ID: {doc_id+1}, Cosine Similarity: {cosine_score:.4f}, TF-IDF Score: {tfidf_score:.4f}")
+    for doc_id, cosine_sim, tfidf_score in results:
+        print(f"Document ID: {doc_id+1}, Cosine Similarity: {cosine_sim:.4f}, TF-IDF Score: {tfidf_score:.4f}")
+
+# Print TF-IDF matrix
+print("\nTF-IDF Matrix:")
+print(indexer.tfidf_matrix.toarray())
+
+
