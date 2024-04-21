@@ -1,4 +1,5 @@
 import pickle
+import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -31,7 +32,9 @@ class Indexer:
     def search(self, query, k=5):
         query_vector = self.vectorizer.transform([query])
         cosine_similarities = cosine_similarity(query_vector, self.tfidf_matrix).flatten()
-        doc_scores = [(doc_id, cosine_score, tfidf_score) for doc_id, (cosine_score, tfidf_score) in enumerate(zip(cosine_similarities, query_vector.toarray().flatten()))]
+        # Retrieve TF-IDF scores for the query
+        query_tfidf_scores = query_vector.toarray().flatten()
+        doc_scores = [(doc_id, cosine_score, tfidf_score) for doc_id, (cosine_score, tfidf_score) in enumerate(zip(cosine_similarities, query_tfidf_scores))]
         doc_scores.sort(key=lambda x: x[1], reverse=True)
         return doc_scores[:k]
 
