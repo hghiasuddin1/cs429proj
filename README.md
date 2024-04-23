@@ -104,6 +104,65 @@ Test cases for the system can be developed using a framework such as pytest, cov
      - Verifies that the application returns an appropriate error response with status code 400 and an error message when the 'query' key is missing from the JSON data.
 
 
+**Indexer**
+
+
+**Test Case 1: Adding Documents**
+
+**Purpose:** 
+To verify the functionality of adding documents to the indexer.
+
+**Framework:** 
+Utilizes Python's unittest framework for defining and executing test cases.
+
+**Harness:** 
+Uses a test environment where the `Indexer` class is instantiated and documents are added using the `add_document` method.
+
+**Coverage:** 
+Ensures that documents can be successfully added to the indexer and that the indexer maintains the correct association between terms and documents.
+
+**Test Case 2: Building Index**
+
+**Purpose:** 
+To ensure that the index is built correctly from the added documents.
+
+**Framework:** 
+Utilizes Python's unittest framework for defining and executing test cases.
+
+**Harness:** 
+Uses a test environment where the `Indexer` class is instantiated, documents are added, and the index is built using the `build_index` method.
+
+**Coverage:** 
+Verifies that the TF-IDF matrix is constructed accurately and reflects the document-term associations in the indexed documents.
+
+**Test Case 3: Performing Searches**
+
+**Purpose:** 
+To validate the capability of the indexer to perform search queries based on the built index.
+
+**Framework:** 
+Utilizes Python's unittest framework for defining and executing test cases.
+
+**Harness:** 
+Uses a test environment where the `Indexer` class is instantiated, documents are added, the index is built, and search queries are executed using the `search` method.
+
+**Coverage:** 
+Ensures that search queries return relevant documents with accurate cosine similarity scores and TF-IDF scores.
+
+### Test Case 4: Printing TF-IDF Matrix
+
+**Purpose:** 
+To verify that the TF-IDF matrix representation of the indexed documents is accurate.
+
+**Framework:** 
+Utilizes Python's unittest framework for defining and executing test cases.
+
+**Harness:** 
+Uses a test environment where the `Indexer` class is instantiated, documents are added, and the index is built. The TF-IDF matrix is then printed using the `print` statement.
+
+**Coverage:** 
+Confirms that the TF-IDF matrix reflects the numerical representation of the indexed documents accurately.
+
 
 
 # Source Code
