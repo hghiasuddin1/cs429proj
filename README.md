@@ -2,13 +2,13 @@
 
 # Abstract
 
-This report presents the development of a web document retrieval system aimed at efficiently crawling, indexing, and processing web documents. The objectives of the project include implementing a scalable web crawler, constructing an inverted index for search indexing, and developing a query processor to handle free text queries. The next steps involve optimizing the system for performance and scalability, as well as integrating additional features such as distributed crawling and advanced query processing techniques.
+This report presents the development of a web document retrieval system aimed at efficiently crawling, indexing, and processing web documents. The objectives of the project include implementing a scalable web crawler, constructing an inverted index for search indexing, and developing a query processor to handle free text queries. The system is designed to be modular and extensible, allowing for easy integration of additional features and improvements.
 
 # Overview
-The solution consists of three main components: a Scrapy-based web crawler for downloading web documents, a Scikit-Learn-based indexer for constructing an inverted index, and a Flask-based query processor for handling free text queries. Relevant literature in information retrieval and natural language processing guided the design of the system, leveraging techniques such as TF-IDF weighting and cosine similarity for efficient search indexing and retrieval. The proposed system aims to provide users with fast and accurate search results from a large corpus of web documents.
+The repository consists of three main components: a Scrapy-based web crawler for downloading web documents, a Scikit-Learn-based indexer for constructing an inverted index, and a Flask-based query processor for handling free text queries. Relevant literature in information retrieval and natural language processing guided the design of the system, leveraging techniques such as TF-IDF weighting and cosine similarity for efficient search indexing and retrieval. The proposed system aims to provide users with fast and accurate search results from a large corpus of web documents.
 
 # Design
-The system's capabilities include crawling web documents from specified seed URLs, constructing an inverted index using TF-IDF weighting, and processing free text queries to retrieve top-ranked results. Interactions between components involve passing data such as crawled documents and queries, with integration facilitated by standard interfaces and data formats. The system is designed to be modular and extensible, allowing for easy integration of additional features and improvements.
+The system's capabilities include crawling web documents from specified seed URLs, constructing an inverted index using TF-IDF weighting, and processing free text queries to retrieve top-ranked results. Interactions between components involve passing data such as crawled documents and queries, with integration facilitated by standard interfaces and data formats. 
 
 # Architecture
 The software architecture consists of three main components: the Scrapy-based web crawler, the Scikit-Learn-based indexer, and the Flask-based query processor. These components communicate through well-defined interfaces, with data passed in JSON format. Implementation details include the use of Python 3.10+, Scrapy 2.11+, Scikit-Learn 1.2+, and Flask 2.2+ libraries to build the system.
@@ -21,6 +21,7 @@ The development of the web document retrieval system was successful in achieving
 
 # Data Sources
 The system does not rely on external data sources but is designed to crawl and index web documents from any publicly accessible website.
+For the crawler test cases, I use a wikipedia page, a quotes website, and Professor Lee's website, moss.cs.iit.edu.
 
 # Test Cases
 Test cases for the system can be developed using a framework such as pytest, covering scenarios such as crawling various types of web content, indexing large document collections, and processing diverse query types.
