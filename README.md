@@ -103,7 +103,7 @@ Test cases for the system can be developed using a framework such as pytest, cov
    - **Coverage:**
      - Verifies that the application returns an appropriate error response with status code 400 and an error message when the 'query' key is missing from the JSON data.
 
-This writeup provides an overview of the purpose, framework, harness, and coverage for each test case. It ensures comprehensive testing of the Flask application's functionality and behavior under various scenarios. 
+
 
 
 # Source Code
