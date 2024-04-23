@@ -60,6 +60,7 @@ Test cases for the system can be developed using a framework such as pytest, cov
    - **Coverage:**
      - Coverage analysis will measure the effectiveness of the crawler in traversing and scraping content from the Moss website. It helps ensure that the crawler adequately exercises the codebase, identifying any potential gaps in test coverage.
 
+# Source Code
 The source code for the web document retrieval system, including the crawler, indexer, and query processor, is available on GitHub [link to repository]. Documentation and dependencies are provided within the source code repository.
 
 # Bibliography
