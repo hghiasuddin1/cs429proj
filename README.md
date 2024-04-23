@@ -25,37 +25,41 @@ The system does not rely on external data sources but is designed to crawl and i
 # Test Cases
 Test cases for the system can be developed using a framework such as pytest, covering scenarios such as crawling various types of web content, indexing large document collections, and processing diverse query types.
 Crawler:
-Test Case 1:
-Purpose:
-Evaluate the crawler's behavior when crawling Wikipedia pages, starting from the seed URL of "https://en.wikipedia.org/wiki/Mike_Tyson".
-Test the crawler's ability to limit the crawl to a maximum of 100 pages and a depth of 3 levels.
-Framework:
-Scrapy provides the testing framework for defining and executing spider-based tests. It offers tools for creating test cases and running spiders within a controlled environment.
-Harness:
-Scrapy's test harness automates the execution of the crawler based on the provided test case. It sets up the environment, initiates the spider with the specified parameters, and collects the results.
-Coverage:
-The test case aims to achieve coverage of the crawler's functionality when crawling Wikipedia pages. Coverage analysis will measure the percentage of code paths exercised by the spider during the crawl, ensuring comprehensive testing.
-Test Case 2:
-Purpose:
-Assess the crawler's performance when scraping quotes from the "http://quotes.toscrape.com" website.
-Test the crawler's behavior with a higher maximum depth of 40 levels while still limiting the crawl to 100 pages.
-Framework:
-Utilizes Scrapy's testing framework to define and execute the spider-based test case for scraping quotes.
-Harness:
-Leverages Scrapy's test harness to automate the execution of the crawler, ensuring consistent and repeatable test runs.
-Coverage:
-Coverage analysis will gauge the extent to which the crawler exercises the codebase when scraping quotes from the specified website. It helps identify areas of the code that may require additional testing or refinement.
-Test Case 3:
-Purpose:
-Evaluate the crawler's performance on a different domain, specifically the "https://moss.cs.iit.edu/" website.
-Test the crawler's behavior with a moderate limit of 60 pages and a deep maximum depth of 60 levels.
-Framework:
-Relies on Scrapy's testing framework to define and execute the spider-based test case targeting the Moss website.
-Harness:
-Utilizes Scrapy's test harness to automate the execution of the crawler, facilitating efficient and controlled testing on the specified domain.
-Coverage:
-Coverage analysis will measure the effectiveness of the crawler in traversing and scraping content from the Moss website. It helps ensure that the crawler adequately exercises the codebase, identifying any potential gaps in test coverage.
-# Source Code
+**Test Cases Writeup:**
+
+1. **Test Case 1:**
+   - **Purpose:** 
+     - Evaluate the crawler's behavior when crawling Wikipedia pages, starting from the seed URL of "https://en.wikipedia.org/wiki/Mike_Tyson".
+     - Test the crawler's ability to limit the crawl to a maximum of 100 pages and a depth of 3 levels.
+   - **Framework:**
+     - Scrapy provides the testing framework for defining and executing spider-based tests. It offers tools for creating test cases and running spiders within a controlled environment.
+   - **Harness:**
+     - Scrapy's test harness automates the execution of the crawler based on the provided test case. It sets up the environment, initiates the spider with the specified parameters, and collects the results.
+   - **Coverage:**
+     - The test case aims to achieve coverage of the crawler's functionality when crawling Wikipedia pages. Coverage analysis will measure the percentage of code paths exercised by the spider during the crawl, ensuring comprehensive testing.
+
+2. **Test Case 2:**
+   - **Purpose:**
+     - Assess the crawler's performance when scraping quotes from the "http://quotes.toscrape.com" website.
+     - Test the crawler's behavior with a higher maximum depth of 40 levels while still limiting the crawl to 100 pages.
+   - **Framework:**
+     - Utilizes Scrapy's testing framework to define and execute the spider-based test case for scraping quotes.
+   - **Harness:**
+     - Leverages Scrapy's test harness to automate the execution of the crawler, ensuring consistent and repeatable test runs.
+   - **Coverage:**
+     - Coverage analysis will gauge the extent to which the crawler exercises the codebase when scraping quotes from the specified website. It helps identify areas of the code that may require additional testing or refinement.
+
+3. **Test Case 3:**
+   - **Purpose:**
+     - Evaluate the crawler's performance on a different domain, specifically the "https://moss.cs.iit.edu/" website.
+     - Test the crawler's behavior with a moderate limit of 60 pages and a deep maximum depth of 60 levels.
+   - **Framework:**
+     - Relies on Scrapy's testing framework to define and execute the spider-based test case targeting the Moss website.
+   - **Harness:**
+     - Utilizes Scrapy's test harness to automate the execution of the crawler, facilitating efficient and controlled testing on the specified domain.
+   - **Coverage:**
+     - Coverage analysis will measure the effectiveness of the crawler in traversing and scraping content from the Moss website. It helps ensure that the crawler adequately exercises the codebase, identifying any potential gaps in test coverage.
+
 The source code for the web document retrieval system, including the crawler, indexer, and query processor, is available on GitHub [link to repository]. Documentation and dependencies are provided within the source code repository.
 
 # Bibliography
