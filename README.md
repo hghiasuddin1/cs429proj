@@ -13,10 +13,11 @@ The system's capabilities include crawling web documents from specified seed URL
 The software architecture consists of three main components: the Scrapy-based web crawler, the Scikit-Learn-based indexer, and the Flask-based query processor. These components communicate through well-defined interfaces, with data passed in JSON format. Implementation details include the use of Python 3.10+, Scrapy 2.11+, Scikit-Learn 1.2+, and Flask 2.2+ libraries to build the system.
 
 # Operation
-To use the system, users can run the provided Python scripts for each component. For the web crawler, specify the seed URL/domain, maximum pages, and maximum depth. For the indexer, provide a list of documents to build the inverted index. For the query processor, send free text queries in JSON format to the specified endpoint. However, further testing and optimization are required to ensure scalability and performance under heavy loads. Caveats include potential challenges in handling dynamic web content and optimizing query processing for real-time responses.
+To use the system, users can run the provided Python scripts for each component. For the web crawler, specify the seed URL/domain, maximum pages, and maximum depth. For the indexer, provide a list of documents to build the inverted index. For the query processor, send free text queries in JSON format to the specified endpoint. However, further testing and optimization are required to ensure scalability and performance under heavy loads. Caveats include potential challenges in handling dynamic web content and optimizing query processing for real-time responses. No installation required, outside of the libraries used to write the code.
 
 # Conclusion
 The development of the web document retrieval system was successful in achieving the stated objectives. The system demonstrates efficient crawling, indexing, and query processing capabilities. 
+
 # Data Sources
 The system does not rely on external data sources but is designed to crawl and index web documents from any publicly accessible website.
 For the crawler test cases, data is pulled from a wikipedia page, a quotes website, and Professor Lee's website, moss.cs.iit.edu.
