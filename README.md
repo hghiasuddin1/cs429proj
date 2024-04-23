@@ -1,7 +1,6 @@
 # cs429proj
 
 # Abstract
-
 This report presents the development of a web document retrieval system aimed at efficiently crawling, indexing, and processing web documents. The objectives of the project include implementing a scalable web crawler, constructing an inverted index for search indexing, and developing a query processor to handle free text queries. The system is designed to be modular and extensible, allowing for easy integration of additional features and improvements.
 
 # Overview
@@ -14,7 +13,7 @@ The system's capabilities include crawling web documents from specified seed URL
 The software architecture consists of three main components: the Scrapy-based web crawler, the Scikit-Learn-based indexer, and the Flask-based query processor. These components communicate through well-defined interfaces, with data passed in JSON format. Implementation details include the use of Python 3.10+, Scrapy 2.11+, Scikit-Learn 1.2+, and Flask 2.2+ libraries to build the system.
 
 # Operation
-To use the system, users can run the provided Python scripts for each component. For the web crawler, specify the seed URL/domain, maximum pages, and maximum depth. For the indexer, provide a list of documents to build the inverted index. For the query processor, send free text queries in JSON format to the specified endpoint. Installation instructions and software commands are provided in the source code documentation.
+To use the system, users can run the provided Python scripts for each component. For the web crawler, specify the seed URL/domain, maximum pages, and maximum depth. For the indexer, provide a list of documents to build the inverted index. For the query processor, send free text queries in JSON format to the specified endpoint. 
 
 # Conclusion
 The development of the web document retrieval system was successful in achieving the stated objectives. The system demonstrates efficient crawling, indexing, and query processing capabilities. However, further testing and optimization are required to ensure scalability and performance under heavy loads. Caveats include potential challenges in handling dynamic web content and optimizing query processing for real-time responses.
@@ -149,9 +148,13 @@ Test cases for the system can be developed using a framework such as pytest, cov
      - Confirms that the TF-IDF matrix reflects the numerical representation of the indexed documents accurately.
 
 
-
 # Source Code
-The source code for the web document retrieval system, including the crawler, indexer, and query processor, is available on GitHub [link to repository]. Documentation and dependencies are provided within the source code repository.
+The source code for this project was generated using OpenAI's ChatGPT model. The code is written in Python and utilizes various libraries and frameworks, including:
+
+- `scikit-learn` for TF-IDF vectorization and cosine similarity calculations.
+- `pickle` for serializing and deserializing Python objects.
+- `unittest` for defining and executing test cases.
+- `Flask` for creating the web service
 
 # Bibliography
 Manning, C. D., Raghavan, P., & Schütze, H. (2008). Introduction to Information Retrieval. Cambridge University Press.
