@@ -12,6 +12,8 @@ test_cases = [
 for test_case in test_cases:
     subprocess.run(test_case, shell=True)
 
+No output. The website will be saved in a file in the spiders directory.
+
 
 Indexer:
 import unittest
