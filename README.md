@@ -16,8 +16,7 @@ The software architecture consists of three main components: the Scrapy-based we
 To use the system, users can run the provided Python scripts for each component. For the web crawler, specify the seed URL/domain, maximum pages, and maximum depth. For the indexer, provide a list of documents to build the inverted index. For the query processor, send free text queries in JSON format to the specified endpoint. 
 
 # Conclusion
-The development of the web document retrieval system was successful in achieving the stated objectives. The system demonstrates efficient crawling, indexing, and query processing capabilities. However, further testing and optimization are required to ensure scalability and performance under heavy loads. Caveats include potential challenges in handling dynamic web content and optimizing query processing for real-time responses.
-
+The development of the web document retrieval system was successful in achieving the stated objectives. The system demonstrates efficient crawling, indexing, and query processing capabilities. 
 # Data Sources
 The system does not rely on external data sources but is designed to crawl and index web documents from any publicly accessible website.
 For the crawler test cases, I use a wikipedia page, a quotes website, and Professor Lee's website, moss.cs.iit.edu.
