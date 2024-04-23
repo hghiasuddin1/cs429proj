@@ -157,10 +157,12 @@ The source code for this project was generated using OpenAI's ChatGPT model. The
 - `Flask` for creating the web service
 
 # Bibliography
-Chatgpt. Accessed April 20, 2024. https://chat.openai.com.
+1. ChatGPT. "Accessed April 21, 2024. [Online]. Available: https://chat.openai.com."
 
-Manning, Christopher D., Prabhakar Raghavan, and Hinrich Schütze. An introduction to information retrieval. Cambridge: Cambridge University Press, 2022.
+2. C.D. Manning, P. Raghavan, and H. Schütze, *An Introduction to Information Retrieval.* Cambridge: Cambridge University Press, 2022.
 
-“Scikit-Learn.” scikit. Accessed April 22, 2024. https://scikit-learn.org/stable/.
+3. *Scikit-Learn.* Accessed April 22, 2024. [Online]. Available: https://scikit-learn.org/stable/.
 
-“Scrapy 2.11 Documentation.” Scrapy 2.11 documentation - Scrapy 2.11.1 documentation, April 11, 2024. https://docs.scrapy.org/en/latest/.
+4. *Scrapy 2.11 Documentation.* Scrapy 2.11.1 documentation, April 11, 2024. [Online]. Available: https://docs.scrapy.org/en/latest/.
+
+5. Flask. "Flask Documentation." Accessed April 20, 2024. [Online]. Available: https://flask.palletsprojects.com/en/2.1.x/.
