@@ -32,39 +32,141 @@ print("\nTF-IDF Matrix:")
 print(indexer.tfidf_matrix.toarray())
 
 
+
+output:
+Search results for query 'document':
+Document ID: 2, Cosine Similarity: 0.6876, TF-IDF Score: 1.0000
+Document ID: 1, Cosine Similarity: 0.4698, TF-IDF Score: 0.0000
+Document ID: 4, Cosine Similarity: 0.4698, TF-IDF Score: 0.0000
+Document ID: 3, Cosine Similarity: 0.0000, TF-IDF Score: 0.0000
+Search results for query 'second document':
+Document ID: 2, Cosine Similarity: 0.8240, TF-IDF Score: 0.5380
+Document ID: 1, Cosine Similarity: 0.2528, TF-IDF Score: 0.0000
+Document ID: 4, Cosine Similarity: 0.2528, TF-IDF Score: 0.0000
+Document ID: 3, Cosine Similarity: 0.0000, TF-IDF Score: 0.0000
+Search results for query 'third':
+Document ID: 3, Cosine Similarity: 0.5118, TF-IDF Score: 0.0000
+Document ID: 1, Cosine Similarity: 0.0000, TF-IDF Score: 0.0000
+Document ID: 2, Cosine Similarity: 0.0000, TF-IDF Score: 0.0000
+Document ID: 4, Cosine Similarity: 0.0000, TF-IDF Score: 0.0000
+Search results for query 'this':
+Document ID: 1, Cosine Similarity: 0.3841, TF-IDF Score: 0.0000
+Document ID: 4, Cosine Similarity: 0.3841, TF-IDF Score: 0.0000
+Document ID: 2, Cosine Similarity: 0.2811, TF-IDF Score: 0.0000
+Document ID: 3, Cosine Similarity: 0.2671, TF-IDF Score: 0.0000
+
+TF-IDF Matrix:
+[[0.         0.46979139 0.58028582 0.38408524 0.         0.
+  0.38408524 0.         0.38408524]
+ [0.         0.6876236  0.         0.28108867 0.         0.53864762
+  0.28108867 0.         0.28108867]
+ [0.51184851 0.         0.         0.26710379 0.51184851 0.
+  0.26710379 0.51184851 0.26710379]
+ [0.         0.46979139 0.58028582 0.38408524 0.         0.
+  0.38408524 0.         0.38408524]]
+
 Processor:
-import requests
+import unittest
+import json
+from processor import app
 
-# Function to add documents to the Flask application
-def add_documents(documents):
-    url = 'http://127.0.0.1:5000/add_documents'
-    response = requests.post(url, json={'documents': documents})
-    return response
+class TestProcessor(unittest.TestCase):
 
-# Function to make queries to the Flask application
-def process_query(query):
-    url = 'http://127.0.0.1:5000/query'
-    response = requests.post(url, json={'query': query})
-    return response
+    def setUp(self):
+        app.testing = True
+        self.app = app.test_client()
 
-# Add documents to the Flask application
-documents = [
-    "This is the first document",
-    "This document is the second document",
-    "And this is the third one",
-    "Is this the first document?"
-]
-add_documents_response = add_documents(documents)
-print("Documents added successfully")
+    def test_add_documents(self):
+        # Test adding documents
+        documents = [
+            "This is the first document",
+            "This document is the second document",
+            "And this is the third one",
+            "Is this the first document?"
+        ]
+        response = self.app.post('/add_documents', json={'documents': documents})
+        self.assertEqual(response.status_code, 200)
+        data = json.loads(response.data)
+        self.assertEqual(data['message'], 'Documents added successfully')
+        print("\nAdd Documents Test:")
+        print("Status Code:", response.status_code)
+        print("Response Data:", data)
 
-# Make queries to the Flask application
-queries = ["document", "second document", "third", "this"]
-for query in queries:
-    response = process_query(query)
-    print("Query:", query)
-    if response.status_code == 200:
-        print("Response:", response.json())
-    else:
-        print("Error:", response.status_code, "-", response.text)
+    def test_process_query(self):
+        # Add documents
+        documents = [
+            "This is the first document",
+            "This document is the second document",
+            "And this is the third one",
+            "Is this the first document?",
+        ]
+        self.app.post('/add_documents', json={'documents': documents})
+
+        # Test processing queries
+        queries = ["document", "second document", "third", "this"]
+        for query in queries:
+            response = self.app.post('/query', json={'query': query})
+            self.assertEqual(response.status_code, 200)
+            data = json.loads(response.data)
+            print("\nProcess Query Test:")
+            print("Query:", query)
+            print("Status Code:", response.status_code)
+            print("Response Data:", data)
+
+    def test_empty_query(self):
+        # Test query with empty query
+        response = self.app.post('/query', json={'query': ' '})
+        self.assertEqual(response.status_code, 400)
+        data = json.loads(response.data)
+        print("\nEmpty Query Test:")
+        print("Status Code:", response.status_code)
+        print("Response Data:", data)
+
+    def test_missing_query_key(self):
+    # Test query with missing 'query' key
+        response = self.app.post('/query', json={})
+        self.assertEqual(response.status_code, 400)
+        data = json.loads(response.data)
+        self.assertEqual(data['error'], 'Query key is missing in JSON data')
+        print("\nMissing Query Key Test:")
+        print("Status Code:", response.status_code)
+        print("Response Data:", data)
+
+if __name__ == '__main__':
+    unittest.main()
 
 
+
+output:
+Add Documents Test:
+Status Code: 200
+Response Data: {'message': 'Documents added successfully'}
+.
+Empty Query Test:
+Status Code: 400
+Response Data: {'error': 'Query is empty or contains only whitespace'}
+.
+Missing Query Key Test:
+Status Code: 400
+Response Data: {'error': 'Query key is missing in JSON data'}
+.
+Process Query Test:
+Query: document
+Status Code: 200
+Response Data: {'results': [{'document_index': 1, 'similarity_score': 0.6876235979836938}, {'document_index': 3, 'similarity_score': 0.4697913855799205}, {'document_index': 0, 'similarity_score': 0.4697913855799205}, {'document_index': 2, 'similarity_score': 0.0}]}
+
+Process Query Test:
+Query: second document
+Status Code: 200
+Response Data: {'results': [{'document_index': 1, 'similarity_score': 0.8240016875671837}, {'document_index': 3, 'similarity_score': 0.25276137487720246}, {'document_index': 0, 'similarity_score': 0.25276137487720246}, {'document_index': 2, 'similarity_score': 0.0}]}
+
+Process Query Test:
+Query: third
+Status Code: 200
+Response Data: {'results': [{'document_index': 2, 'similarity_score': 0.511848512707169}, {'document_index': 3, 'similarity_score': 0.0}, {'document_index': 1, 'similarity_score': 0.0}, {'document_index': 0, 'similarity_score': 0.0}]}
+
+Process Query Test:
+Query: this
+Status Code: 200
+Response Data: {'results': [{'document_index': 3, 'similarity_score': 0.3840852409148149}, {'document_index': 0, 'similarity_score': 0.3840852409148149}, {'document_index': 1, 'similarity_score': 0.281088674033753}, {'document_index': 2, 'similarity_score': 0.267103787642168}]}
+.
