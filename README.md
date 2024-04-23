@@ -1,7 +1,7 @@
 # cs429proj
 
 # Abstract
-This report presents the development of a web document retrieval system aimed at efficiently crawling, indexing, and processing web documents. The objectives of the project include implementing a scalable web crawler, constructing an inverted index for search indexing, and developing a query processor to handle free text queries. The system is designed to be modular and extensible, allowing for easy integration of additional features and improvements.
+This report presents the development of a web document retrieval system aimed at efficiently crawling, indexing, and processing web documents. The objectives of the project include implementing a scalable web crawler, constructing an inverted index for search indexing, and developing a query processor to handle free text queries. The system is designed to be modular and extensible, allowing for easy integration of additional features and improvements. This report was produced with the assistance of OpenAi's ChatGPT
 
 # Overview
 The repository consists of three main components: a Scrapy-based web crawler for downloading web documents, a Scikit-Learn-based indexer for constructing an inverted index, and a Flask-based query processor for handling free text queries. Relevant literature in information retrieval and natural language processing guided the design of the system, leveraging techniques such as TF-IDF weighting and cosine similarity for efficient search indexing and retrieval. The proposed system aims to provide users with fast and accurate search results from a large corpus of web documents.
