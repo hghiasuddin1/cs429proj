@@ -19,7 +19,7 @@ To use the system, users can run the provided Python scripts for each component.
 The development of the web document retrieval system was successful in achieving the stated objectives. The system demonstrates efficient crawling, indexing, and query processing capabilities. 
 # Data Sources
 The system does not rely on external data sources but is designed to crawl and index web documents from any publicly accessible website.
-For the crawler test cases, I use a wikipedia page, a quotes website, and Professor Lee's website, moss.cs.iit.edu.
+For the crawler test cases, data is pulled from a wikipedia page, a quotes website, and Professor Lee's website, moss.cs.iit.edu.
 
 # Test Cases
 Test cases for the system can be developed using a framework such as pytest, covering scenarios such as crawling various types of web content, indexing large document collections, and processing diverse query types.
