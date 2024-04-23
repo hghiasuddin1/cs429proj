@@ -14,6 +14,9 @@ for test_case in test_cases:
 
 
 Indexer:
+import unittest
+from indexer import Indexer
+
 # Initialize the indexer
 indexer = Indexer()
 
