@@ -24,8 +24,8 @@ The system does not rely on external data sources but is designed to crawl and i
 
 # Test Cases
 Test cases for the system can be developed using a framework such as pytest, covering scenarios such as crawling various types of web content, indexing large document collections, and processing diverse query types.
-Crawler:
-**Test Cases Writeup:**
+
+**Crawler:**
 
 1. **Test Case 1:**
    - **Purpose:** 
