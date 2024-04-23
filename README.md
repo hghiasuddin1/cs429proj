@@ -60,6 +60,52 @@ Test cases for the system can be developed using a framework such as pytest, cov
    - **Coverage:**
      - Coverage analysis will measure the effectiveness of the crawler in traversing and scraping content from the Moss website. It helps ensure that the crawler adequately exercises the codebase, identifying any potential gaps in test coverage.
 
+
+**Processor:**
+
+1. **Test Case 1: Test Adding Documents**
+   - **Purpose:** 
+     - Validate the functionality of adding documents to the Flask application.
+   - **Framework:**
+     - Utilizes the unittest framework for defining and executing test cases.
+   - **Harness:**
+     - Leverages Flask's test client to simulate HTTP requests and interact with the application endpoints.
+   - **Coverage:**
+     - Ensures that the endpoint '/add_documents' properly handles JSON requests containing documents and returns a successful response upon adding documents successfully.
+
+2. **Test Case 2: Test Processing Queries**
+   - **Purpose:**
+     - Evaluate the capability of the Flask application to process queries based on the added documents.
+   - **Framework:**
+     - Utilizes the unittest framework for defining and executing test cases.
+   - **Harness:**
+     - Leverages Flask's test client to simulate HTTP requests and interact with the application endpoints.
+   - **Coverage:**
+     - Verifies that the '/query' endpoint correctly handles queries, calculates cosine similarity scores, and returns the top-k results as expected.
+
+3. **Test Case 3: Test Empty Query**
+   - **Purpose:**
+     - Validate the behavior of the Flask application when an empty query is provided.
+   - **Framework:**
+     - Utilizes the unittest framework for defining and executing test cases.
+   - **Harness:**
+     - Leverages Flask's test client to simulate HTTP requests and interact with the application endpoints.
+   - **Coverage:**
+     - Ensures that the application returns an appropriate error response with status code 400 when an empty query is provided.
+
+4. **Test Case 4: Test Missing Query Key**
+   - **Purpose:**
+     - Validate the behavior of the Flask application when the 'query' key is missing from the JSON data.
+   - **Framework:**
+     - Utilizes the unittest framework for defining and executing test cases.
+   - **Harness:**
+     - Leverages Flask's test client to simulate HTTP requests and interact with the application endpoints.
+   - **Coverage:**
+     - Verifies that the application returns an appropriate error response with status code 400 and an error message when the 'query' key is missing from the JSON data.
+
+This writeup provides an overview of the purpose, framework, harness, and coverage for each test case. It ensures comprehensive testing of the Flask application's functionality and behavior under various scenarios. 
+
+
 # Source Code
 The source code for the web document retrieval system, including the crawler, indexer, and query processor, is available on GitHub [link to repository]. Documentation and dependencies are provided within the source code repository.
 
