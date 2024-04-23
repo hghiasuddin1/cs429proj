@@ -157,5 +157,10 @@ The source code for this project was generated using OpenAI's ChatGPT model. The
 - `Flask` for creating the web service
 
 # Bibliography
-Manning, C. D., Raghavan, P., & Schütze, H. (2008). Introduction to Information Retrieval. Cambridge University Press.
-Jurafsky, D., & Martin, J. H. (2020). Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition. Pearson.
+Chatgpt. Accessed April 20, 2024. https://chat.openai.com.
+
+Manning, Christopher D., Prabhakar Raghavan, and Hinrich Schütze. An introduction to information retrieval. Cambridge: Cambridge University Press, 2022.
+
+“Scikit-Learn.” scikit. Accessed April 22, 2024. https://scikit-learn.org/stable/.
+
+“Scrapy 2.11 Documentation.” Scrapy 2.11 documentation - Scrapy 2.11.1 documentation, April 11, 2024. https://docs.scrapy.org/en/latest/.
